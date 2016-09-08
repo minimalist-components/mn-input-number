@@ -2,7 +2,7 @@
 
 let prototype = Object.create(HTMLElement.prototype);
 prototype.createdCallback = mnInput;
-document.registerElement('mn-input-number', {prototype});
+document.registerElement('mn-number', {prototype});
 
 function mnInput() {
   let element = this;

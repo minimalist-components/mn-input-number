@@ -20,7 +20,7 @@ function scriptsTask() {
     .pipe(babel())
     .pipe(concat('app.js'))
     .pipe(uglify({mangle: false}))
-    .pipe(rename('mn-input-number.js'))
+    .pipe(rename('mn-number.js'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.scripts.dest));
 }

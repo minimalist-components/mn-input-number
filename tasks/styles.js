@@ -40,7 +40,7 @@ function stylesTask() {
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle}))
     .pipe(autoprefixer())
-    .pipe(rename('mn-input-number.css'))
+    .pipe(rename('mn-number.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.styles.dest))
     .pipe(browserSync.stream({match: '**/*.css'}));

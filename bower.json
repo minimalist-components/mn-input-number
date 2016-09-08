@@ -1,5 +1,5 @@
 {
-  "name": "mn-input-number",
+  "name": "mn-number",
   "version": "0.0.1",
   "description": "A input component (type number), with minimalist design",
   "main": [

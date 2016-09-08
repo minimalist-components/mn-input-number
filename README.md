@@ -11,22 +11,22 @@ A input component (type number), with minimalist design.
 With bower
 
 ```sh
-bower install --save mn-input-number
+bower install --save mn-number
 ```
 
-Or just download the main files ```dist/mn-input-number.css, dist/mn-input-number.js``` in your project, and make a reference to their, like:
+Or just download the main files ```dist/mn-number.css, dist/mn-number.js``` in your project, and make a reference to their, like:
 
 ```html
-<link rel="stylesheet" href="path/to/dist/mn-input-number.css">
-<script src="path/to/dist/mn-input-number.css"></script>
+<link rel="stylesheet" href="path/to/dist/mn-number.css">
+<script src="path/to/dist/mn-number.css"></script>
 ```
 
 ### Usage
 
-And then, in your html, you can use the tag ```mn-input-number``` i.e.
+And then, in your html, you can use the tag ```mn-number``` i.e.
 
 ```html
-<mn-input-number placeholder="Username"></mn-input-number>
+<mn-number placeholder="Username"></mn-number>
 ```
 
 The following attributes from inputs are supported in this component
