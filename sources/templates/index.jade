@@ -16,8 +16,12 @@ body
     mn-number(placeholder='Number')
 
   div
-    h2 mn-number
-    mn-number(placeholder='Number with max 10', max='10')
+    h2 mn-number[max='10']
+    mn-number(placeholder='Number (with max 10)', max='10')
+
+  div
+    h2 mn-number[min='0']
+    mn-number(placeholder='Number (with min 10)', min='0')
   
   script(src='mn-number.js')
 
