@@ -1,10 +1,10 @@
 'use strict';
 
 let prototype = Object.create(HTMLElement.prototype);
-prototype.createdCallback = mnInput;
+prototype.createdCallback = mnNumber;
 document.registerElement('mn-number', {prototype});
 
-function mnInput() {
+function mnNumber() {
   let element = this;
 
   let inputAttributes = [
