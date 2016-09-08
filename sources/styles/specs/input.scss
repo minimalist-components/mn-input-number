@@ -24,6 +24,12 @@ mn-number {
     text-overflow: ellipsis;
     user-select: none;
 
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
     @include placeholder {
       color: transparent;
       pointer-events: none;
