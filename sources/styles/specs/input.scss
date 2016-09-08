@@ -5,7 +5,7 @@
   &:-ms-input-placeholder {@content}
 }
 
-mn-input {
+mn-input-number {
   position: relative;
   display: inline-block;
   margin: 2.5em .1em 0;
@@ -23,7 +23,6 @@ mn-input {
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
     user-select: none;
-
 
     @include placeholder {
       color: transparent;
