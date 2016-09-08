@@ -1,0 +1,38 @@
+html
+  meta(name='viewport' content='width=device-width, user-scalable=no')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans')
+  link(rel='stylesheet' href='mn-input.css')
+  style.
+    body {
+      font-family: 'Open Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    } 
+body
+  h1 Minimalist inputs
+
+  div
+    h2 mn-input
+    mn-input(placeholder='Username')
+    mn-input(placeholder='Password', type='password')
+    mn-input(placeholder='Input', type='password', disabled)
+    mn-input(placeholder='Email', type='email')
+
+  div
+    h2 mn-input[disabled]
+    mn-input(placeholder='Input', disabled)
+
+  div
+    h2 mn-input[type='text']
+    mn-input(placeholder='Username')
+
+  div
+    h2 mn-input[type='password']
+    mn-input(placeholder='Password', type='password')
+
+  div
+    h2 mn-input[type='email']
+    mn-input(placeholder='Email', type='email')
+  
+  script(src='mn-input.js')
+
