@@ -26,7 +26,7 @@ Or just download the main files ```dist/mn-number.css, dist/mn-number.js``` in y
 And then, in your html, you can use the tag ```mn-number``` i.e.
 
 ```html
-<mn-number placeholder="Username"></mn-number>
+<mn-number placeholder="Number"></mn-number>
 ```
 
 The following attributes from inputs are supported in this component
