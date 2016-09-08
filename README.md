@@ -1,4 +1,4 @@
-# Minimalist input
+# Minimalist input number
 
 A input component (type number), with minimalist design.
 
