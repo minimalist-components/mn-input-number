@@ -27,6 +27,7 @@ And then, in your html, you can use the tag ```mn-number``` i.e.
 
 ```html
 <mn-number placeholder="Number"></mn-number>
+<mn-number placeholder="Number (with max 10)" max="10"></mn-number>
 ```
 
 The following attributes from inputs are supported in this component
