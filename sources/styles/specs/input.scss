@@ -23,6 +23,7 @@ mn-number {
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
     user-select: none;
+    background-color: transparent;
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
