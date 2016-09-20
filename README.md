@@ -18,7 +18,7 @@ Or just download the main files ```dist/mn-number.css, dist/mn-number.js``` in y
 
 ```html
 <link rel="stylesheet" href="path/to/dist/mn-number.css">
-<script src="path/to/dist/mn-number.css"></script>
+<script src="path/to/dist/mn-number.js"></script>
 ```
 
 ### Usage
