@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   templates: {
     src: './sources/templates/*.jade',
@@ -37,4 +35,4 @@ module.exports = {
     reloadDelay: 100,
     open: false,
   },
-};
+}
