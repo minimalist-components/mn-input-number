@@ -1,4 +1,4 @@
-# Minimalist input number
+# mn-number
 
 A input component (type number), with minimalist design.
 
@@ -8,19 +8,11 @@ A input component (type number), with minimalist design.
 
 ### Install
 
-With bower
-
 ```sh
 bower install --save mn-number
 ```
 
-Or just download the main files ```dist/mn-number.css, dist/mn-number.js``` in your project, and make a reference to their, like:
-
-```html
-<link rel="stylesheet" href="path/to/dist/mn-number.css">
-<script src="path/to/dist/vendor.js"></script>
-<script src="path/to/dist/mn-number.js"></script>
-```
+Or just download the main files, located in [dist/](https://github.com/minimalist-components/mn-number/tree/master/dist)
 
 ### Usage
 
