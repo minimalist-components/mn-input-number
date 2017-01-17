@@ -29,6 +29,8 @@ class MnNumber extends window.MnInput {
       .filter(implemented)
       .forEach(setAttribute)
 
+    return self
+
     function implemented(defaultAttr) {
       return attributes.some(attr => attr.name === defaultAttr.name)
     }
@@ -38,7 +40,6 @@ class MnNumber extends window.MnInput {
       input.setAttribute(attribute.name, value)
     }
 
-    return self
   }
 }
 
