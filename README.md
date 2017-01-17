@@ -27,9 +27,4 @@ The following attributes from inputs are supported in this component
 
 - [max](http://www.w3schools.com/tags/att_input_max.asp)
 - [min](http://www.w3schools.com/tags/att_input_min.asp)
-- [value](http://www.w3schools.com/tags/att_input_value.asp)
-- [name](http://www.w3schools.com/tags/att_input_name.asp)
-- [autofocus](http://www.w3schools.com/tags/att_input_autofocus.asp)
-- [pattern](http://www.w3schools.com/tags/att_input_pattern.asp)
-- [readonly](http://www.w3schools.com/tags/att_input_readonly.asp)
-- [disabled](http://www.w3schools.com/tags/att_input_disabled.asp)
+- [step](http://www.w3schools.com/tags/att_input_step.asp)

@@ -16,9 +16,10 @@ body
 
   .layout-fullscreen.layout-centered
     .layout-container
-      mn-form.layout-column.layout-sm-row
-        mn-number.flex(placeholder='Type a number')
+      mn-form.layout-column.layout-sm-row.submitted
+        mn-number.flex(placeholder='number' max='10' min='0')
         mn-number.flex(placeholder='another number')
+        //- button.mn-button submit
 
   block scripts
     script(src='docs/vendor.js')

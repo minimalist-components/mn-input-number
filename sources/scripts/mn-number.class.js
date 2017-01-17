@@ -1,51 +1,45 @@
 class MnNumber extends window.MnInput {
   constructor(self) {
     self = super(self)
-    this.querySelector('input').setAttribute('type', 'number')
+    const input = this.querySelector('input')
+    input.setAttribute('type', 'number')
+
+    const attributes = Array
+      .from(this.attributes)
+      .map(attr => {
+        const name = attr.name
+        const value = attr.value
+
+        return {name, value}
+      })
+
+    const attributeSpecs = [
+      {
+        name: 'max',
+      },
+      {
+        name: 'min',
+      },
+      {
+        name: 'step',
+      },
+    ]
+
+    attributeSpecs
+      .filter(implemented)
+      .forEach(setAttribute)
+
+    function implemented(defaultAttr) {
+      return attributes.some(attr => attr.name === defaultAttr.name)
+    }
+
+    function setAttribute(attribute) {
+      const value = attributes.filter(attr => attr.name === attribute.name)[0].value
+      input.setAttribute(attribute.name, value)
+    }
+
     return self
   }
 }
-
-// let attributeSpecs = [
-//     {
-//       name: 'type',
-//       default: 'number',
-//     },
-//     {
-//       name: 'placeholder',
-//       default: 'undefined',
-//     },
-//     {
-//       name: 'value',
-//     },
-//     {
-//       name: 'name',
-//     },
-//     {
-//       name: 'autocomplete',
-//       default: 'off',
-//     },
-//     {
-//       name: 'autofocus',
-//     },
-//     {
-//       name: 'pattern',
-//     },
-//     {
-//       name: 'readonly',
-//     },
-//     {
-//       name: 'required',
-//     },
-//     {
-//       name: 'disabled',
-//     },
-//     {
-//       name: 'max',
-//     },
-//     {
-//       name: 'min',
-//     },
-//   ]
 
 customElements.define('mn-number', MnNumber)

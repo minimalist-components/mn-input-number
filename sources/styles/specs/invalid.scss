@@ -1,0 +1,13 @@
+form.submitted .mn-input.invalid {
+  &.rangeOverflow:before {
+    content: attr(placeholder) ' must be at most ' attr(max);
+  }
+
+  &.rangeUnderflow:before {
+    content: attr(placeholder) ' must be at least ' attr(min);
+  }
+
+  &.stepMismatch:before {
+    content: attr(placeholder) ' needs to be multiple of ' attr(step);
+  }
+}

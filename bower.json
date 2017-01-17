@@ -12,11 +12,11 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
-    "mn-input": "^0.0.42"
+    "mn-input": "^0.0.44"
   },
   "devDependencies": {
     "mn-gh-page": "^0.0.13",
-    "mn-form": "^0.0.5",
+    "mn-form": "^0.0.7",
     "mn-button": "^0.0.11"
   }
 }
