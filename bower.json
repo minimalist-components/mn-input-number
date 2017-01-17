@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "A input component (type number), with minimalist design",
   "main": [
-    "dist/mn-input.css",
-    "dist/mn-input.js"
+    "dist/mn-number.css",
+    "dist/mn-number.js"
   ],
   "authors": [
     "Darlan Mendonça <darlanmendonca@gmail.com>"
