@@ -1,28 +1,9 @@
-html
-  meta(name='viewport' content='width=device-width, user-scalable=no')
-  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
-  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans')
-  link(rel='stylesheet' href='mn-number.css')
-  style.
-    body {
-      font-family: 'Open Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    } 
-body
-  h1 Minimalist input number
+extends demo
 
-  div
-    h2 mn-number
-    mn-number(placeholder='Number')
+block styles
+  link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-number/master/docs/vendor.css')
+  link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-number/master/dist/mn-number.css')
 
-  div
-    h2 mn-number[max='10']
-    mn-number(placeholder='Number (with max 10)', max='10')
-
-  div
-    h2 mn-number[min='0']
-    mn-number(placeholder='Number (with min 10)', min='0')
-  
-  script(src='vendor.js')
-  script(src='mn-number.js')
-
+block scripts
+  script(src='https://rawgit.com/minimalist-components/mn-number/master/docs/vendor.js')
+  script(src='https://rawgit.com/minimalist-components/mn-number/master/dist/mn-number.js')

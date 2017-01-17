@@ -1,0 +1,25 @@
+html
+  meta(name='viewport' content='width=device-width, user-scalable=no')
+
+  block styles
+    link(rel='stylesheet' href='docs/vendor.css')
+    link(rel='stylesheet' href='dist/mn-number.css')
+
+  style.
+    mn-number {
+      font-size: 1.2rem;
+    }
+
+body
+  h2 mn-number
+  include github-corner
+
+  .layout-fullscreen.layout-centered
+    .layout-container
+      mn-form.layout-column.layout-sm-row
+        mn-number.flex(placeholder='Type a number')
+        mn-number.flex(placeholder='another number')
+
+  block scripts
+    script(src='docs/vendor.js')
+    script(src='dist/mn-number.js')
