@@ -10,16 +10,39 @@ html
       font-size: 1.2rem;
     }
 
+    form {width: 100%}
+
+    @media (min-width: 600px) {
+      form {
+        padding: 100px;
+        box-sizing: border-box;
+      }
+    }
+
 body
   h2 mn-number
   include github-corner
 
-  .layout-fullscreen.layout-centered
-    .layout-container
-      mn-form.layout-column.layout-sm-row.submitted
+  .mn-layout-fullscreen.mn-layout-centered
+    .mn-layout-container
+      mn-form.mn-layout-column.mn-layout-sm-row.submitted
         mn-number.flex(placeholder='number' max='10' min='0')
         mn-number.flex(placeholder='another number')
         //- button.mn-button submit
+
+  .docs.mn-layout-container
+    mn-code
+      npm install --save mn-select
+
+    p And bundle dependencies and main files in <strong>dist/</strong> with your preferred tool.
+
+    h3 usage
+    p And then, in your html, you can use the tag <strong class="tag">mn-number</strong> e.g.
+    mn-code.html.
+      <mn-number placeholder="Number"></mn-number>
+      <mn-number placeholder="Number (with max 10)" max="10"></mn-number>
+
+    p The following attributes from inputs are supported in this component: <em>max</em>, <em>min</em> and <em>step</em>.
 
   block scripts
     script(src='docs/vendor.js')
