@@ -1,6 +1,6 @@
 {
   "name": "mn-number",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a input component (type number), with minimalist design",
   "main": "dist/mn-number.js",
   "files": [
@@ -28,7 +28,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "mn-input": "^0.0.4"
+    "mn-input": "^0.0.5"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
