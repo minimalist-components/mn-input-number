@@ -29,6 +29,23 @@ class MnNumber extends window.MnInput {
       .filter(implemented)
       .forEach(setAttribute)
 
+    input.addEventListener('keydown', event => {
+      const invalidCharacters = [
+        ','
+      ]
+
+      const isInvalidCharacter = invalidCharacters.indexOf(event.key) >= 0
+      if (isInvalidCharacter) {
+        event.preventDefault()
+      }
+    })
+
+    input.addEventListener('change', () => {
+    //   input.value = input.value.replace(',', '.')
+    //   this.value = input.value
+      console.log(input.value)
+    })
+
     return self
 
     function implemented(defaultAttr) {
@@ -39,8 +56,7 @@ class MnNumber extends window.MnInput {
       const value = attributes.filter(attr => attr.name === attribute.name)[0].value
       input.setAttribute(attribute.name, value)
     }
-
   }
 }
 
-customElements.define('mn-number', MnNumber)
+window.customElements.define('mn-number', MnNumber)
