@@ -4,6 +4,10 @@ class MnNumber extends window.MnInput {
     const input = this.querySelector('input')
     input.setAttribute('type', 'number')
 
+    // const mask = document.createElement('input')
+    // mask.classList.add('mask')
+    // this.appendChild(mask)
+
     const attributes = Array
       .from(this.attributes)
       .map(attr => {
@@ -29,22 +33,24 @@ class MnNumber extends window.MnInput {
       .filter(implemented)
       .forEach(setAttribute)
 
-    input.addEventListener('keydown', event => {
-      const invalidCharacters = [
-        ','
-      ]
+    if (this.getAttribute('decimal')) {
+      const precision = !isNaN(this.getAttribute('decimal'))
+        ? Number(this.getAttribute('decimal'))
+        : 2
 
-      const isInvalidCharacter = invalidCharacters.indexOf(event.key) >= 0
-      if (isInvalidCharacter) {
-        event.preventDefault()
-      }
-    })
+      input.addEventListener('change', () => {
+        if (this.value) {
+          const value = Number(this.value).toFixed(precision)
+          this.value = 0
+          this.value = value
+          this.setAttribute('value', value)
+          // mask.value = value + ' %'
 
-    input.addEventListener('change', () => {
-    //   input.value = input.value.replace(',', '.')
-    //   this.value = input.value
-      console.log(input.value)
-    })
+          console.log('this.value', this.value)
+        }
+      })
+
+    }
 
     return self
 

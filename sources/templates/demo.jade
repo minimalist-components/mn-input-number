@@ -26,7 +26,8 @@ body
   .mn-layout-fullscreen.mn-layout-centered
     .mn-layout-container
       mn-form.mn-layout-column.mn-layout-sm-row.submitted
-        mn-number.flex(placeholder='number' max='10' min='0')
+        mn-number.flex#num(placeholder='height' max='10' min='0' decimal step='0.1')
+        mn-number.flex(placeholder='number 2' max='10' min='0')
         mn-number.flex(placeholder='another number')
         //- button.mn-button submit
 
