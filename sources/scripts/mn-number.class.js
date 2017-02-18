@@ -46,7 +46,7 @@ class MnNumber extends window.MnInput {
           this.setAttribute('value', value)
           // mask.value = value + ' %'
 
-          console.log('this.value', this.value)
+          // console.log('this.value', this.value)
         }
       })
 
