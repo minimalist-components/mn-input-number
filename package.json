@@ -28,7 +28,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "mn-input": "~0.0.6"
+    "mn-input": "~0.0.7"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",

@@ -6,4 +6,22 @@ mn-number {
       margin: 0;
     }
   }
+
+  &.has-value .mask {opacity: 1}
+
+  .mask {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    &:before {
+      opacity: 0;
+      content: attr(value)
+    }
+
+    &:after {
+      content: ' %'
+    }
+  }
 }
