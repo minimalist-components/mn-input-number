@@ -1,5 +1,7 @@
 mn-number {
   input {
+    font: inherit;
+
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -7,7 +9,7 @@ mn-number {
     }
   }
 
-  &.has-value .mask {opacity: 1}
+  &.has-value .mask, input:focus + .mask {opacity: 1}
 
   .mask {
     position: absolute;
@@ -21,7 +23,15 @@ mn-number {
     }
 
     &:after {
-      content: ' %'
+      margin-left: .35em;
     }
+  }
+
+  &[percentage] .mask:after {
+    content: '%';
+  }
+
+  &[currency] .mask:after {
+    content: '$';
   }
 }

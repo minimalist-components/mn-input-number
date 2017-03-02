@@ -4,10 +4,6 @@ class MnNumber extends window.MnInput {
     const input = this.querySelector('input')
     input.setAttribute('type', 'number')
 
-    // const mask = document.createElement('input')
-    // mask.classList.add('mask')
-    // this.appendChild(mask)
-
     const attributes = Array
       .from(this.attributes)
       .map(attr => {
@@ -33,19 +29,25 @@ class MnNumber extends window.MnInput {
       .filter(implemented)
       .forEach(setAttribute)
 
-    if (this.getAttribute('decimal')) {
-      const precision = !isNaN(this.getAttribute('decimal'))
-        ? Number(this.getAttribute('decimal'))
+    const maskType = this.getAttribute('decimal')
+      || this.getAttribute('percentage')
+      || this.getAttribute('currency')
+
+    if (maskType) {
+      const precision = !isNaN(maskType)
+        ? Number(maskType)
         : 2
 
       const mask = document.createElement('div')
       mask.classList.add('mask')
       this.appendChild(mask)
 
-      const value = Number(this.value).toFixed(precision)
-      this.value = value
-      mask.setAttribute('value', input.value.replace('.', ','))
-      this.classList.add('has-value')
+      if (this.value) {
+        const value = Number(this.value).toFixed(precision)
+        this.value = value
+        mask.setAttribute('value', input.value.replace('.', ','))
+        this.classList.add('has-value')
+      }
 
       input.addEventListener('keydown', () => {
         mask.setAttribute('value', input.value.replace('.', ','))
@@ -68,18 +70,9 @@ class MnNumber extends window.MnInput {
           this.value = value
           mask.setAttribute('value', input.value.replace('.', ','))
           this.setAttribute('value', value)
-          // mask.value = value + ' %'
-
-          // console.log('this.value', this.value)
         }
       })
     } else {
-      input.addEventListener('keydown', event => {
-        if (event.key === ',') {
-          event.preventDefault()
-        }
-      })
-
       input.addEventListener('paste', event => {
         event.preventDefault()
         const value = event.clipboardData.getData('Text')
@@ -88,7 +81,17 @@ class MnNumber extends window.MnInput {
           this.value = number
         }
       })
+
+      input.addEventListener('change', () => {
+        this.value = parseInt(input.value)
+      })
     }
+
+    input.addEventListener('blur', () => {
+      if (!input.value) {
+        input.value = ''
+      }
+    })
 
     return self
 

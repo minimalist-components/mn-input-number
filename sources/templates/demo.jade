@@ -25,11 +25,11 @@ body
 
   .mn-layout-fullscreen.mn-layout-centered
     .mn-layout-container
-      mn-form.mn-layout-column.mn-layout-sm-row.submitted
-        mn-number.flex#num(placeholder='height' max='10' min='0' decimal step='0.1' value='1')
-        mn-number.flex(placeholder='number 2' max='10' min='0')
-        mn-number.flex(placeholder='another number')
-        mn-number.flex(placeholder='another number' min='0' max='100' required name='test')
+      mn-form.mn-layout-column.mn-layout-sm-row
+        mn-number.flex(placeholder='integer number' min='0' max='100' required name='test')
+        mn-number.flex(placeholder='float with precision 3' decimal='3' max='10' min='0' step='0.1')
+        mn-number.flex(placeholder='money' currency max='10' min='0')
+        mn-number.flex(placeholder='percentage' percentage)
         //- button.mn-button submit
 
   .docs.mn-layout-container
@@ -45,6 +45,20 @@ body
       <mn-number placeholder="Number (with max 10)" max="10"></mn-number>
 
     p The following attributes from inputs are supported in this component: <em>max</em>, <em>min</em> and <em>step</em>.
+
+
+    h3 integer or float
+    p By default, <strong>mn-number</strong> accept only integer numbers, if you want a float number, use the attribute <em>decimal</em> and assign to it a precision, by default is 2, e.g.
+
+     mn-code.html.
+      <mn-number placeholder="Float number" decimal></mn-number>
+      <mn-number placeholder="Float number with precision 3" decimal="2"></mn-number>
+
+    p Available too, <em>currency</em> and <em>percentage</em>
+
+     mn-code.html.
+      <mn-number placeholder="money" currency></mn-number>
+      <mn-number placeholder="money" percentage></mn-number>
 
   block scripts
     script(src='docs/vendor.js')
