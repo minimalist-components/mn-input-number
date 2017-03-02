@@ -54,11 +54,22 @@ body
       <mn-number placeholder="Float number" decimal></mn-number>
       <mn-number placeholder="Float number with precision 3" decimal="2"></mn-number>
 
-    p Available too, <em>currency</em> and <em>percentage</em>
+    p You can use too, <em>currency</em> and <em>percentage</em>
 
      mn-code.html.
       <mn-number placeholder="money" currency></mn-number>
-      <mn-number placeholder="money" percentage></mn-number>
+      <mn-number placeholder="money with high precision" currency="4"></mn-number>
+      <mn-number placeholder="percentage" percentage></mn-number>
+
+    h3 suffix
+    p Maybe you need a different suffix, like <em>10 m</em> (meters), or <em>10 mph</em> (miles per hour). So, to implement your own suffix, just add a CSS selector, like:
+
+    mn-code.css.
+      mn-number.mph .mask:after {
+        content: 'mph';
+      }
+
+    p and sure, add the class <strong>.mph</strong> to your mn-number
 
   block scripts
     script(src='docs/vendor.js')

@@ -14,6 +14,10 @@ form {width: 100%}
 <mn-number placeholder="Number (with max 10)" max="10"></mn-number>
 </mn-code><p>The following attributes from inputs are supported in this component: <em>max</em>, <em>min</em> and <em>step</em>.</p><h3>integer or float</h3><p>By default, <strong>mn-number</strong> accept only integer numbers, if you want a float number, use the attribute <em>decimal</em> and assign to it a precision, by default is 2, e.g.<mn-code class="html"><mn-number placeholder="Float number" decimal></mn-number>
 <mn-number placeholder="Float number with precision 3" decimal="2"></mn-number>
-</mn-code></p><p>Available too, <em>currency</em> and <em>percentage</em><mn-code class="html"><mn-number placeholder="money" currency></mn-number>
-<mn-number placeholder="money" percentage></mn-number>
-</mn-code></p></div><script src="https://rawgit.com/minimalist-components/mn-number/master/docs/vendor.js"></script><script src="https://rawgit.com/minimalist-components/mn-number/master/dist/mn-number.js"></script></body>
+</mn-code></p><p>You can use too, <em>currency</em> and <em>percentage</em><mn-code class="html"><mn-number placeholder="money" currency></mn-number>
+<mn-number placeholder="money with high precision" currency="4"></mn-number>
+<mn-number placeholder="percentage" percentage></mn-number>
+</mn-code></p><h3>suffix</h3><p>Maybe you need a different suffix, like <em>10 m</em> (meters), or <em>10 mph</em> (miles per hour). So, to implement your own suffix, just add a CSS selector, like:</p><mn-code class="css">mn-number.mph .mask:after {
+  content: 'mph';
+}
+</mn-code><p>and sure, add the class <strong>.mph</strong> to your mn-number</p></div><script src="https://rawgit.com/minimalist-components/mn-number/master/docs/vendor.js"></script><script src="https://rawgit.com/minimalist-components/mn-number/master/dist/mn-number.js"></script></body>
