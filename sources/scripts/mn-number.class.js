@@ -1,17 +1,13 @@
 class MnNumber extends window.MnInput {
   constructor(self) {
     self = super(self)
+    const instance = this
     const input = this.querySelector('input')
     input.setAttribute('type', 'number')
 
     const attributes = Array
       .from(this.attributes)
-      .map(attr => {
-        const name = attr.name
-        const value = attr.value
-
-        return {name, value}
-      })
+      .map(nameAndValue)
 
     const attributeSpecs = [
       {
@@ -33,20 +29,32 @@ class MnNumber extends window.MnInput {
       || this.getAttribute('percentage')
       || this.getAttribute('currency')
 
-    if (maskType) {
+    maskType
+      ? setMaskEvents()
+      : setIntegerEvents()
+
+    input.addEventListener('blur', () => {
+      if (!input.value) {
+        input.value = ''
+      }
+    })
+
+    return self
+
+    function setMaskEvents() {
       const precision = !isNaN(maskType)
         ? Number(maskType)
         : 2
 
       const mask = document.createElement('div')
       mask.classList.add('mask')
-      this.appendChild(mask)
+      instance.appendChild(mask)
 
-      if (this.value) {
-        const value = Number(this.value).toFixed(precision)
-        this.value = value
+      if (instance.value) {
+        const value = Number(instance.value).toFixed(precision)
+        instance.value = value
         mask.setAttribute('value', input.value.replace('.', ','))
-        this.classList.add('has-value')
+        instance.classList.add('has-value')
       }
 
       input.addEventListener('keydown', () => {
@@ -57,43 +65,44 @@ class MnNumber extends window.MnInput {
         mask.setAttribute('value', input.value.replace('.', ','))
 
         if (input.value.length) {
-          this.classList.add('has-value')
+          instance.classList.add('has-value')
         } else {
-          this.classList.remove('has-value')
+          instance.classList.remove('has-value')
         }
       })
 
       input.addEventListener('change', () => {
-        if (this.value) {
-          const value = Number(this.value).toFixed(precision)
-          this.value = 0
-          this.value = value
+        if (instance.value) {
+          const value = Number(instance.value).toFixed(precision)
+          instance.value = 0
+          instance.value = value
           mask.setAttribute('value', input.value.replace('.', ','))
-          this.setAttribute('value', value)
+          instance.setAttribute('value', value)
         }
       })
-    } else {
+    }
+
+    function setIntegerEvents() {
       input.addEventListener('paste', event => {
         event.preventDefault()
         const value = event.clipboardData.getData('Text')
         const number = parseInt(value)
         if (!isNaN(number)) {
-          this.value = number
+          instance.value = number
         }
       })
 
       input.addEventListener('change', () => {
-        this.value = parseInt(input.value)
+        instance.value = parseInt(input.value)
       })
     }
 
-    input.addEventListener('blur', () => {
-      if (!input.value) {
-        input.value = ''
-      }
-    })
+    function nameAndValue(attr) {
+      const name = attr.name
+      const value = attr.value
 
-    return self
+      return {name, value}
+    }
 
     function implemented(defaultAttr) {
       return attributes.some(attr => attr.name === defaultAttr.name)
