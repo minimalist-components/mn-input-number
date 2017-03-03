@@ -32,3 +32,32 @@ The following attributes from inputs are supported in this component
 - [max](http://www.w3schools.com/tags/att_input_max.asp)
 - [min](http://www.w3schools.com/tags/att_input_min.asp)
 - [step](http://www.w3schools.com/tags/att_input_step.asp)
+
+### Integer or Float
+
+By default, `mn-number` accept only integer numbers, if you want a float number, use the attribute `decimal` and assign to it a precision, by default is 2, e.g.
+
+```html
+<mn-number placeholder="Float number" decimal></mn-number>
+<mn-number placeholder="Float number with precision 3" decimal="2"></mn-number>
+```
+
+You can use too, `currency` and `percentage`
+
+```html
+<mn-number placeholder="money" currency></mn-number>
+<mn-number placeholder="money with high precision" currency="4"></mn-number>
+<mn-number placeholder="percentage" percentage></mn-number>
+```
+
+### Suffix
+
+Maybe you need a different suffix, like `10 m` (meters), or `10 mph` (miles per hour). So, to implement your own suffix, just add a CSS selector, like:
+
+```css
+mn-number.mph .mask:after {
+  content: 'mph';
+}
+```
+
+and sure, add the class `.mph` to your mn-number
