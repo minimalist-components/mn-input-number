@@ -93,7 +93,12 @@ class MnNumber extends window.MnInput {
       })
 
       input.addEventListener('change', () => {
-        instance.value = parseInt(input.value)
+        const value = parseInt(input.value)
+        const isANumber = !isNaN(value)
+
+        if (isANumber) {
+          instance.value = value
+        }
       })
     }
 
