@@ -3,7 +3,17 @@ class MnNumber extends window.MnInput {
     self = super(self)
     const instance = this
     const input = this.querySelector('input')
+    this.input = input
     input.setAttribute('type', 'number')
+
+    const maskAttribute = this.getAttribute('decimal')
+      || this.getAttribute('percentage')
+      || this.getAttribute('currency')
+      || undefined
+
+    this.precision = !isNaN(maskAttribute)
+      ? Number(maskAttribute)
+      : 2
 
     const attributes = Array
       .from(this.attributes)
@@ -25,9 +35,10 @@ class MnNumber extends window.MnInput {
       .filter(implemented)
       .forEach(setAttribute)
 
-    const maskType = this.getAttribute('decimal')
-      || this.getAttribute('percentage')
-      || this.getAttribute('currency')
+    const maskType = this.getAttribute('decimal') && 'decimal'
+      || this.getAttribute('percentage') && 'percentage'
+      || this.getAttribute('currency') && 'currency'
+      || undefined
 
     maskType
       ? setMaskEvents()
@@ -42,16 +53,14 @@ class MnNumber extends window.MnInput {
     return self
 
     function setMaskEvents() {
-      const precision = !isNaN(maskType)
-        ? Number(maskType)
-        : 2
-
       const mask = document.createElement('div')
       mask.classList.add('mask')
       instance.appendChild(mask)
 
       if (instance.value) {
-        const value = Number(instance.value).toFixed(precision)
+        const value = maskType === 'percentage'
+          ? Number(instance.value * 100).toFixed(instance.precision)
+          : Number(instance.value).toFixed(instance.precision)
         instance.value = value
         mask.setAttribute('value', input.value.replace('.', ','))
         instance.classList.add('has-value')
@@ -73,7 +82,9 @@ class MnNumber extends window.MnInput {
 
       input.addEventListener('change', () => {
         if (instance.value) {
-          const value = Number(instance.value).toFixed(precision)
+          const value = maskType === 'percentage'
+            ? Number(instance.value * 100).toFixed(instance.precision)
+            : Number(instance.value).toFixed(instance.precision)
           instance.value = 0
           instance.value = value
           mask.setAttribute('value', input.value.replace('.', ','))
@@ -116,6 +127,24 @@ class MnNumber extends window.MnInput {
     function setAttribute(attribute) {
       const value = attributes.filter(attr => attr.name === attribute.name)[0].value
       input.setAttribute(attribute.name, value)
+    }
+  }
+
+  get value() {
+    const isPercentage = this.getAttribute('percentage')
+    const val = +this.input.value
+    return this.input.value
+      ? isPercentage
+        // ? val / 100
+        ? (val * 100) / 10000
+        : val
+      : undefined
+
+  }
+
+  set value(value) {
+    if (value && !Number.isNaN(value)) {
+      this.input.value = value
     }
   }
 }
