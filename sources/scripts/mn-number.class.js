@@ -56,8 +56,8 @@ class MnNumber extends window.MnInput {
       const mask = document.createElement('div')
       mask.classList.add('mask')
       instance.appendChild(mask)
-
-      if (instance.value) {
+      // console.log(!isNaN(instance.value))
+      if (!isNaN(instance.value)) {
         const value = maskType === 'percentage'
           ? Number(instance.value * 100).toFixed(instance.precision)
           : Number(instance.value).toFixed(instance.precision)
@@ -81,7 +81,7 @@ class MnNumber extends window.MnInput {
       })
 
       input.addEventListener('change', () => {
-        if (instance.value) {
+        if (!isNaN(instance.value)) {
           const value = maskType === 'percentage'
             ? Number(instance.value * 100).toFixed(instance.precision)
             : Number(instance.value).toFixed(instance.precision)
@@ -139,7 +139,6 @@ class MnNumber extends window.MnInput {
         ? (val * 100) / 10000
         : val
       : undefined
-
   }
 
   set value(value) {
