@@ -111,6 +111,14 @@ class MnNumber extends window.MnInput {
           instance.value = value
         }
       })
+
+      input.addEventListener('keyup', () => {
+        if (input.value.length) {
+          instance.classList.add('has-value')
+        } else {
+          instance.classList.remove('has-value')
+        }
+      })
     }
 
     function nameAndValue(attr) {
