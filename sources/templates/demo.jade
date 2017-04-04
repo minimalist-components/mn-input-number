@@ -26,10 +26,10 @@ body
   .mn-layout-fullscreen.mn-layout-centered
     .mn-layout-container
       mn-form.mn-layout-column.mn-layout-sm-row
-        mn-number.flex(placeholder='integer number' min='0' max='100' required name='test')
-        mn-number.flex(placeholder='float with precision 3' decimal='3' max='10' min='0' step='0.1')
-        mn-number.flex(placeholder='money' currency max='10' min='0')
-        mn-number.flex(placeholder='percentage' percentage)
+        mn-number.flex#int(placeholder='integer number' min='0' max='100' required name='test')
+        mn-number.flex#decimal(placeholder='float with precision 3' decimal='3' max='10' min='0' step='0.1')
+        mn-number.flex#money(placeholder='money' currency max='10' min='0')
+        mn-number.flex#perc(placeholder='percentage' percentage)
         //- button.mn-button submit
 
   .docs.mn-layout-container
@@ -74,3 +74,8 @@ body
   block scripts
     script(src='docs/vendor.js')
     script(src='dist/mn-number.js')
+    script.
+      var int = document.getElementById('int')
+      var decimal = document.getElementById('decimal')
+      var money = document.getElementById('money')
+      var perc = document.getElementById('perc')
