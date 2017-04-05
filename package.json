@@ -1,6 +1,6 @@
 {
   "name": "mn-number",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a input component (type number), with minimalist design",
   "main": "dist/mn-number.js",
   "files": [

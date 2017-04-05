@@ -63,7 +63,7 @@ class MnNumber extends window.MnInput {
           : Number(instance.value).toFixed(instance.precision)
         instance.value = value
         mask.setAttribute('value', input.value.replace('.', ','))
-        instance.classList.add('has-value')
+        // instance.classList.add('has-value')
       }
 
       input.addEventListener('keydown', () => {
@@ -73,11 +73,11 @@ class MnNumber extends window.MnInput {
       input.addEventListener('keyup', () => {
         mask.setAttribute('value', input.value.replace('.', ','))
 
-        if (input.value.length) {
-          instance.classList.add('has-value')
-        } else {
-          instance.classList.remove('has-value')
-        }
+        // if (input.value.length) {
+        //   instance.classList.add('has-value')
+        // } else {
+        //   instance.classList.remove('has-value')
+        // }
       })
 
       input.addEventListener('change', () => {
@@ -89,6 +89,7 @@ class MnNumber extends window.MnInput {
           instance.value = value
           mask.setAttribute('value', input.value.replace('.', ','))
           instance.setAttribute('value', value)
+          instance.classList.remove('change')
         }
       })
     }
@@ -110,14 +111,8 @@ class MnNumber extends window.MnInput {
         if (isANumber) {
           instance.value = value
         }
-      })
 
-      input.addEventListener('keyup', () => {
-        if (input.value.length) {
-          instance.classList.add('has-value')
-        } else {
-          instance.classList.remove('has-value')
-        }
+        instance.classList.remove('change')
       })
     }
 
@@ -153,6 +148,21 @@ class MnNumber extends window.MnInput {
     if (value && !Number.isNaN(value)) {
       this.input.value = value
     }
+
+    if (this.input.value.length) {
+      this.classList.add('has-value')
+    } else {
+      this.classList.remove('has-value')
+    }
+
+    if (!this.classList.contains('change')) {
+      console.log('dispatch change')
+      this.classList.add('change')
+      const event = document.createEvent('HTMLEvents')
+      event.initEvent('change', false, true)
+      this.input.dispatchEvent(event)
+    }
+
   }
 }
 
