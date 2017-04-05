@@ -156,7 +156,6 @@ class MnNumber extends window.MnInput {
     }
 
     if (!this.classList.contains('change')) {
-      console.log('dispatch change')
       this.classList.add('change')
       const event = document.createEvent('HTMLEvents')
       event.initEvent('change', false, true)
